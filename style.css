@@ -87,22 +87,27 @@ nav.sticky .media-icons a {
   color: #fff;
 }
 
-.navbar .menu-btn,
-.navbar .menu .cancel-btn {
-  position: absolute;
-  color: #fff;
-  right: 30px;
-  top: 20px;
-  font-size: 20px;
-  cursor: pointer;
-  transition: all 0.3s ease;
+.navbar .menu-btn {
   display: none;
-}
-nav .menu-btn {
+  font-size: 24px;
+  cursor: pointer;
   color: #4070f4;
+  z-index: 1000;
+  transition: color 0.3s ease;
 }
 nav.sticky .menu-btn {
   color: #fff;
+}
+
+.navbar .menu .cancel-btn {
+  display: none; /* shown only in mobile via media query */
+  position: absolute;
+  color: #fff;
+  right: 20px;
+  top: 20px;
+  font-size: 22px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 /* Navbar Slide-in Animation 
@@ -555,7 +560,10 @@ footer .text span a:hover {
   display: none;
 }
 
-/* Media Queries */
+/* ============================================================
+   MEDIA QUERIES
+   ============================================================ */
+
 @media (max-width: 1000px) {
   .about .about-details {
     justify-content: center;
@@ -576,12 +584,73 @@ footer .text span a:hover {
   }
 }
 
+/* ---- Mobile Navbar (≤ 750px) ---- */
 @media (max-width: 750px) {
-  nav .navbar {
-    width: 90%;
+
+  /* Show hamburger icon */
+  .navbar .menu-btn {
+    display: block;
   }
+
+  /* Hide social icons to keep navbar clean */
+  .navbar .media-icons {
+    display: none;
+  }
+
+  /* Full-height slide-in menu panel */
+  nav .navbar .menu {
+    position: fixed;
+    top: 0;
+    left: -100%;          /* hidden off-screen by default */
+    width: 270px;
+    height: 100vh;
+    background: #4070f4;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 80px 30px 30px;
+    gap: 10px;
+    z-index: 999;
+    transition: left 0.35s ease;
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Slide menu in when active */
   .navbar.active .menu {
     left: 0;
+  }
+
+  /* Show cancel (✕) button inside menu */
+  .navbar .menu .cancel-btn {
+    display: block;
+  }
+
+  /* Style menu links for mobile */
+  nav .navbar .menu li {
+    margin: 8px 0;
+    width: 100%;
+  }
+  .navbar .menu a {
+    font-size: 20px;
+    color: #fff;
+    display: block;
+    padding: 10px 0;
+  }
+  .navbar .menu a:hover {
+    color: #0e2431;
+  }
+
+  /* Dark backdrop when menu is open */
+  .navbar.active::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 998;
+  }
+
+  /* Page content adjustments */
+  nav .navbar {
+    width: 90%;
   }
   .home .text-two {
     font-size: 65px;
