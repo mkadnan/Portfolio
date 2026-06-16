@@ -13,11 +13,7 @@ let db;
 let dbConnected = false;
 
 // Middleware to parse JSON and URL-encoded data
-app.use(cors({
-  origin: [
-    "https://portfolio-iota-ten-hajmf5mc1e.vercel.app"
-  ]
-}));
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
