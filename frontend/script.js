@@ -189,7 +189,7 @@ if (contactForm) {
     };
 
     try {
-      const response = await fetch("/submit", {
+      const response = await fetch("https://portfolio-usqf.onrender.com/submit", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
