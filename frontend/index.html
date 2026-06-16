@@ -79,7 +79,7 @@
 
             Let’s build something amazing together!
           <div class="button">
-            <button onclick="window.location.href='Adnanmalik-Resume.pdf.pdf';"
+            <button onclick="window.location.href='Adnanmalik-Resume.pdf';"
               download>Download CV</button>
 
           </div>
@@ -209,7 +209,7 @@
           <div class="topic">Project 2: Database Management System</div>
           <p>This project demonstrates how to manage relational and non-relational databases, including MySQL and
             MongoDB integration.</p>
-          <a href="https://github.com/yourusername/project2" target="_blank" class="project-link">View on GitHub</a>
+          <a href="https://github.com/mkadnan" target="_blank" class="project-link">View on GitHub</a>
         </div>
         <div class="box">
           <div class="icon">
@@ -218,7 +218,7 @@
           <div class="topic">Project 3: Mobile App</div>
           <p>A mobile app designed using React Native, providing an intuitive user experience with full functionality on
             both Android and iOS.</p>
-          <a href="https://github.com/yourusername/project3" target="_blank" class="project-link">View on GitHub</a>
+          <a href="https://github.com/mkadnan" target="_blank" class="project-link">View on GitHub</a>
         </div>
         <div class="box">
           <div class="icon">
@@ -236,7 +236,7 @@
           <div class="topic">Project 5: Search Algorithm</div>
           <p>This project demonstrates various search algorithms such as Binary Search, Depth First Search, and Breadth
             First Search implemented in Python.</p>
-          <a href="https://github.com/yourusername/project5" target="_blank" class="project-link">View on GitHub</a>
+          <a href="https://github.com/mkadnan" target="_blank" class="project-link">View on GitHub</a>
         </div>
         <div class="box">
           <div class="icon">
@@ -245,7 +245,7 @@
           <div class="topic">Project 6: Data Analytics</div>
           <p>A data analytics project that processes and visualizes large datasets using Python libraries like Pandas
             and Matplotlib.</p>
-          <a href="https://github.com/yourusername/project6" target="_blank" class="project-link">View on GitHub</a>
+          <a href="https://github.com/mkadnan" target="_blank" class="project-link">View on GitHub</a>
         </div>
       </div>
     </div>
@@ -270,7 +270,7 @@
         <div class="info-box">
           <i class="fab fa-linkedin"></i>
           <h3>LinkedIn</h3>
-          <a href="https://www.linkedin.com/in/your-linkedin-profile" target="_blank">Visit LinkedIn</a>
+          <a href="https://www.linkedin.com/in/adnan-malik-a55612321/" target="_blank">Visit LinkedIn</a>
         </div>
         <div class="info-box">
           <i class="fab fa-github"></i>
@@ -292,40 +292,6 @@
         </form>
       </section>
 
-      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-      <script>
-        // Handling form submission with JavaScript
-        document.getElementById("contact-form").addEventListener("submit", function (e) {
-          e.preventDefault();
-
-          const name = document.getElementById("name").value;
-          const email = document.getElementById("email").value;
-          const subject = document.getElementById("subject").value;
-          const message = document.getElementById("message").value;
-
-          const formData = {
-            name: name,
-            email: email,
-            subject: subject,
-            message: message
-          };
-
-          // Send form data to the backend using fetch
-
-
-          axios.post("/submit", formData, {
-            headers: {
-              "Content-Type": "application/json"
-            }
-          })
-            .then(response => {
-              alert("Message sent successfully!");
-            })
-            .catch(error => {
-              alert("Error submitting form:", error.message);
-            });
-            });
-        </script>
     </div>
   </section>
 

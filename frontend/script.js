@@ -175,3 +175,37 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+// Contact form submission handler
+const contactForm = document.getElementById("contact-form");
+if (contactForm) {
+  contactForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const formData = {
+      name: document.getElementById("name").value,
+      email: document.getElementById("email").value,
+      subject: document.getElementById("subject").value,
+      message: document.getElementById("message").value,
+    };
+
+    try {
+      const response = await fetch("/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+
+      alert("Message sent successfully!");
+      contactForm.reset();
+    } catch (error) {
+      alert("Error submitting form: " + error.message);
+    }
+  });
+}
+

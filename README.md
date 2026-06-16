@@ -1,14 +1,28 @@
 # Portfolio
- Creating a personal portfolio using CSS and HTML is a popular beginner web development
- project. 
-Header Section:     Add your name or a logo at the top.
- Optionally, include a brief introduction or tagline.
- About Section: Insert an image of yourself.
- Write a short bio highlighting your skills and experience.
- Skills Section: List your key skills or areas of expertise.
- Projects Section: Showcase samples of your work or projects.
- Include project titles, descriptions, and images.
- Resume Section: Provide a link to download your resume in PDF format.
- Contact Section: Include your contact information, such as email address and phone
- number.
- Footer: Add a copyright notice and any additional links or information
+
+This project is a personal portfolio website with a separate frontend and backend.
+
+## Repository layout
+
+- `frontend/` — contains the public website files: `index.html`, `style.css`, `script.js`, and assets.
+- `backend/` — contains the Express backend, `server.js`, and Node dependencies.
+- `archive/` — stores duplicate legacy files from the previous project layout.
+
+## Run locally
+
+1. Open a terminal in the `backend/` directory.
+2. Install dependencies (if not already installed):
+   ```sh
+   npm install
+   ```
+3. Start the backend server:
+   ```sh
+   npm start
+   ```
+4. Open `http://localhost:3000` in your browser.
+
+## Notes
+
+- The backend serves the frontend static files from `frontend/`.
+- Contact form submissions are sent to `/submit` and saved to MySQL if available.
+- If MySQL is unavailable, submissions are saved locally to `backend/messages.json`.

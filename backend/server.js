@@ -131,8 +131,13 @@ app.post("/submit", (req, res) => {
   });
 });
 
-// Serve static files (e.g., HTML, CSS, JS files)
-app.use(express.static(__dirname));
+// Serve static files from the frontend directory
+app.use(express.static(path.join(__dirname, "..", "frontend")));
+
+// Serve frontend index.html for all unmatched routes (fallback)
+app.get(/.*/, (req, res) => {
+  res.sendFile(path.join(__dirname, "..", "frontend", "index.html"));
+});
 
 // Start the server
 app.listen(port, () => {
