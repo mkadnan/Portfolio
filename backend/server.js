@@ -132,11 +132,15 @@ app.post("/submit", (req, res) => {
 });
 
 // Serve static files from the frontend directory
-app.use(express.static(path.join(__dirname, "..", "frontend")));
+const frontendPath = path.resolve(__dirname, "..", "frontend");
+console.log("Serving static files from:", frontendPath);
+app.use(express.static(frontendPath));
 
 // Serve frontend index.html for all unmatched routes (fallback)
 app.get(/.*/, (req, res) => {
-  res.sendFile(path.join(__dirname, "..", "frontend", "index.html"));
+  const indexPath = path.join(frontendPath, "index.html");
+  console.log("Serving index.html from:", indexPath);
+  res.sendFile(indexPath);
 });
 
 // Start the server
