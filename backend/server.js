@@ -143,7 +143,12 @@ app.get(/.*/, (req, res) => {
   res.sendFile(indexPath);
 });
 
-// Start the server
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
-});
+// Start the server when run directly (local development).
+if (require.main === module) {
+  app.listen(port, () => {
+    console.log(`Server is running on http://localhost:${port}`);
+  });
+} else {
+  // Export a handler function for serverless platforms (Vercel).
+  module.exports = (req, res) => app(req, res);
+}
