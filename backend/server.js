@@ -1,21 +1,21 @@
 const express = require("express");
 const cors = require("cors");
 const mysql = require("mysql2");
-const bodyParser = require("body-parser");
 const fs = require("fs");
+const os = require("os");
 const path = require("path");
 
 const app = express();
 const port = process.env.PORT || 3000;
 const dbName = "contact_form";
-const messagesFile = path.join(__dirname, "messages.json");
+const messagesFile = path.join(os.tmpdir(), "messages.json");
 let db;
 let dbConnected = false;
 
 // Middleware to parse JSON and URL-encoded data
 app.use(cors());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 const dbConfig = {
   host: "localhost",
@@ -91,6 +91,7 @@ initDatabase();
 
 // API endpoint to handle form submissions
 app.post("/submit", (req, res) => {
+  console.log("POST /submit body:", req.body);
   const { name, email, subject, message } = req.body;
 
   // Validate the data (basic)

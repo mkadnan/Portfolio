@@ -189,7 +189,7 @@ if (contactForm) {
     };
 
     try {
-      const response = await fetch("/submit", {
+      const response = await fetch(`${window.location.origin}/submit`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -197,13 +197,15 @@ if (contactForm) {
         body: JSON.stringify(formData),
       });
 
+      const responseText = await response.text();
       if (!response.ok) {
-        throw new Error("Network response was not ok");
+        throw new Error(`Error ${response.status}: ${responseText}`);
       }
 
-      alert("Message sent successfully!");
+      alert(responseText || "Message sent successfully!");
       contactForm.reset();
     } catch (error) {
+      console.error("Form submit failed:", error);
       alert("Error submitting form: " + error.message);
     }
   });
