@@ -402,6 +402,7 @@ section .button button:hover {
 /* Certifications Section */
 .certifications {
   margin-top: 50px;
+  padding: 30px 0;
 }
 
 .certifications h3 {
@@ -409,30 +410,47 @@ section .button button:hover {
   font-size: 2rem;
   font-weight: bold;
   color: #333;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
+  letter-spacing: 1px;
 }
 
 .cert-carousel {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 30px;
+  flex-wrap: wrap;
 }
 
 .cert {
   text-align: center;
-  width: 200px;
+  width: 220px;
+  transition: all 0.3s ease;
+}
+
+.cert:hover {
+  transform: translateY(-10px);
 }
 
 .cert img {
   width: 100%;
   height: auto;
-  border-radius: 10px;
+  border-radius: 12px;
   margin-bottom: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 2px solid #f0f0f0;
+}
+
+.cert img:hover {
+  box-shadow: 0 8px 25px rgba(64, 112, 244, 0.3);
+  transform: scale(1.05);
 }
 
 .cert p {
   font-size: 1rem;
-  color: #555;
+  font-weight: 500;
+  color: #333;
+  font-family: 'Poppins', sans-serif;
 }
 
 
@@ -691,6 +709,15 @@ footer .text span a:hover {
   .skills-details .boxes .per {
     font-size: 50px;
     color: #4070f4;
+  }
+  .cert-carousel {
+    gap: 15px;
+  }
+  .cert {
+    width: 160px;
+  }
+  .certifications h3 {
+    font-size: 1.5rem;
   }
 }
 
